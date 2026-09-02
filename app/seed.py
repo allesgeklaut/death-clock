@@ -34,7 +34,7 @@ DEFAULT_PROFILE = {
     "weight_kg": 80.0,
     "exercise_freq": "3-4",
     "exercise_intensity": "moderate",
-    "cardio_fitness": "average",
+    "cardio_fitness": "moderate",
     "blood_pressure": "normal",
     "cholesterol": "normal",
     "blood_glucose": "normal",
