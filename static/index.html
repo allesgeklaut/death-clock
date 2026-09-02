@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Death Clock — Memento Mori</title>
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg?v=1">
+  <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+  <link rel="stylesheet" href="/static/style.css?v=4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ── Survey view ────────────────────────────────────────────── -->
+  <section id="survey-view" class="view active">
+    <div class="survey-card">
+      <h1>Death Clock</h1>
+      <p class="motto">OMNES VULNERANT, ULTIMA NECAT</p>
+      <p class="subtitle">Answer the questions below to estimate the seconds you have left.</p>
+
+      <form id="survey-form">
+
+        <!-- ═══ Basics ═══ -->
+        <div class="form-section">
+          <h2 class="section-title">▮ Basics</h2>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Anonymous" maxlength="100">
+          </div>
+          <div class="form-row">
+            <label for="birth_date">Date of Birth</label>
+            <input type="date" id="birth_date" name="birth_date" required>
+          </div>
+          <div class="form-row">
+            <label for="sex">Sex</label>
+            <select id="sex" name="sex" required>
+              <option value="">—</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+              <option value="">—</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="education">Education</label>
+            <select id="education" name="education" required>
+              <option value="">—</option>
+              <option value="secondary">Secondary school</option>
+              <option value="bachelor">Bachelor's</option>
+              <option value="master">Master's</option>
+              <option value="doctorate">Doctorate / PhD</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ═══ Body ═══ -->
+        <div class="form-section">
+          <h2 class="section-title">▮ Body</h2>
+          <div class="form-row two-col">
+            <div>
+              <label for="height_cm">Height (cm)</label>
+              <input type="number" id="height_cm" name="height_cm" min="50" max="300" step="1" required>
+            </div>
+            <div>
+              <label for="weight_kg">Weight (kg)</label>
+              <input type="number" id="weight_kg" name="weight_kg" min="20" max="500" step="0.1" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ Fitness ═══ -->
+        <div class="form-section">
+          <h2 class="section-title">▮ Fitness</h2>
+          <div class="form-row">
+            <label for="exercise_freq">Exercise Frequency</label>
+            <select id="exercise_freq" name="exercise_freq" required>
+              <option value="">—</option>
+              <option value="none">Sedentary (0×/week)</option>
+              <option value="1-2">1–2×/week</option>
+              <option value="3-4">3–4×/week</option>
+              <option value="5-6">5–6×/week</option>
+              <option value="7+">7+×/week</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="exercise_intensity">Exercise Intensity</label>
+            <select id="exercise_intensity" name="exercise_intensity" required>
+              <option value="">—</option>
+              <option value="light">Light (easy, can talk)</option>
+              <option value="moderate">Moderate (breathing hard)</option>
+              <option value="intense">Intense (can't talk, Zone 4-5)</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="cardio_fitness">Cardio Fitness Level</label>
+            <select id="cardio_fitness" name="cardio_fitness" required>
+              <option value="">—</option>
+              <option value="low">Low (get winded easily)</option>
+              <option value="moderate">Moderate (can jog 30 min)</option>
+              <option value="high">High (run 10K comfortably)</option>
+              <option value="elite">Elite (sub-3h marathon, competitive)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ═══ Health Markers ═══ -->
+        <div class="form-section">
+          <h2 class="section-title">▮ Health Markers</h2>
+          <div class="form-row">
+            <label for="blood_pressure">Blood Pressure</label>
+            <select id="blood_pressure" name="blood_pressure" required>
+              <option value="">—</option>
+              <option value="normal">Normal (under 120/80)</option>
+              <option value="elevated">Elevated (120–139 / 80–89)</option>
+              <option value="high">High (140+/90+)</option>
+              <option value="unknown">I don't know</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="cholesterol">Cholesterol</label>
+            <select id="cholesterol" name="cholesterol" required>
+              <option value="">—</option>
+              <option value="normal">Normal (LDL under 130)</option>
+              <option value="elevated">Elevated (LDL 130–160)</option>
+              <option value="high">High (LDL 160+)</option>
+              <option value="unknown">I don't know</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="blood_glucose">Blood Glucose (HbA1c)</label>
+            <select id="blood_glucose" name="blood_glucose" required>
+              <option value="">—</option>
+              <option value="normal">Normal (under 5.7)</option>
+              <option value="prediabetic">Prediabetic (5.7–6.4)</option>
+              <option value="diabetic">Diabetic (6.5+)</option>
+              <option value="unknown">I don't know</option>
+            </select>
+          </div>
+          <div class="form-row two-col">
+            <div>
+              <label for="hrv_ms">HRV — RMSSD (ms)</label>
+              <input type="number" id="hrv_ms" name="hrv_ms" min="0" max="200" step="1" value="0">
+            </div>
+            <div>
+              <label for="resting_hr">Resting HR (bpm)</label>
+              <input type="number" id="resting_hr" name="resting_hr" min="30" max="150" step="1" value="0">
+            </div>
+          </div>
+          <p class="field-hint">Enter 0 for any value you don't know.</p>
+        </div>
+
+        <!-- ═══ Lifestyle ═══ -->
+        <div class="form-section">
+          <h2 class="section-title">▮ Lifestyle</h2>
+          <div class="form-row">
+            <label for="smoking">Smoking</label>
+            <select id="smoking" name="smoking" required>
+              <option value="">—</option>
+              <option value="never">Never smoked</option>
+              <option value="former_light">Former light smoker</option>
+              <option value="former_heavy">Former heavy smoker</option>
+              <option value="light">Current light smoker</option>
+              <option value="heavy">Current heavy smoker</option>
+            </select>
+          </div>
+          <div class="form-row" id="years-since-quit-row" style="display:none;">
+            <label for="years_since_quit">Years Since You Quit</label>
+            <input type="number" id="years_since_quit" name="years_since_quit" min="0" max="80" step="0.5" value="0">
+          </div>
+          <div class="form-row">
+            <label for="alcohol">Alcohol</label>
+            <select id="alcohol" name="alcohol" required>
+              <option value="">—</option>
+              <option value="none">None</option>
+              <option value="rare">Rare (a few times/month)</option>
+              <option value="moderate">Moderate (1–2 drinks/day)</option>
+              <option value="heavy">Heavy (3+ drinks/day or binge)</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="sleep_hours">Sleep (hours/night)</label>
+            <input type="number" id="sleep_hours" name="sleep_hours" min="0" max="24" step="0.5" value="7" required>
+          </div>
+          <div class="form-row">
+            <label for="stress">Chronic Stress Level</label>
+            <select id="stress" name="stress" required>
+              <option value="">—</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="diet">Diet Quality</label>
+            <select id="diet" name="diet" required>
+              <option value="">—</option>
+              <option value="mediterranean">Mediterranean (lots of veg, fish, olive oil)</option>
+              <option value="balanced">Balanced (whole foods, varied)</option>
+              <option value="average">Average Western (some processed foods)</option>
+              <option value="poor">Poor (mostly processed/fast food)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ═══ Family History ═══ -->
+        <div class="form-section">
+          <h2 class="section-title">▮ Family History</h2>
+          <div class="form-row">
+            <label for="family_history">Family History of Early Death</label>
+            <select id="family_history" name="family_history" required>
+              <option value="">—</option>
+              <option value="none">None — no early CV/cancer deaths in close family</option>
+              <option value="minor">Minor — one relative, late-onset disease</option>
+              <option value="significant">Significant — early CV/cancer in close relatives</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="red-btn">▶ Activate</button>
+      </form>
+
+      <p class="disclaimer">
+        This is a rough heuristic meant to spark reflection, not a medical prediction.
+        If thoughts of mortality feel overwhelming, seek help:
+        <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Clock view ─────────────────────────────────────────────── -->
+  <section id="clock-view" class="view">
+    <div class="clock-container">
+      <p class="motto top-motto">OMNES VULNERANT, ULTIMA NECAT</p>
+
+      <div class="mode-label">SECONDS REMAINING</div>
+
+      <div id="seven-segment" class="seven-segment"></div>
+
+      <div class="clock-label">Every tick is one you no longer have.</div>
+
+      <div class="button-row">
+        <button id="btn-reset" class="grey-btn small">Reset</button>
+        <button id="btn-stats" class="grey-btn small">Details</button>
+      </div>
+
+      <div id="stats-panel" class="stats-panel hidden">
+        <h3>Your Estimate</h3>
+        <div class="stats-summary">
+          <div class="stat-box">
+            <span class="stat-val" id="stat-baseline"></span>
+            <span class="stat-key">Baseline (yrs)</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-val" id="stat-adjustment"></span>
+            <span class="stat-key">Adjustment</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-val" id="stat-adjusted"></span>
+            <span class="stat-key">Adjusted (yrs)</span>
+          </div>
+        </div>
+        <p class="stat-row"><strong>Name:</strong> <span id="stat-name"></span></p>
+        <p class="stat-row"><strong>Estimated death:</strong> <span id="stat-death"></span></p>
+
+        <div class="factors-section">
+          <h4>Factor Breakdown</h4>
+          <ul id="stat-factors" class="factors-list"></ul>
+        </div>
+      </div>
+
+      <p class="motto bottom-motto">MOX NOX</p>
+    </div>
+  </section>
+
+  <script src="/static/app.js?v=4"></script>
+</body>
+</html>
