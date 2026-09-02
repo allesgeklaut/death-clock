@@ -1,0 +1,13 @@
+services:
+  death-clock:
+    build: .
+    container_name: death-clock
+    restart: unless-stopped
+    ports: ["8003:8000"]
+    volumes: ["death_clock_data:/data"]
+    environment:
+      - DB_PATH=/data/deathclock.db
+    security_opt: ["no-new-privileges:true"]
+    tmpfs: ["/tmp"]
+volumes:
+  death_clock_data:

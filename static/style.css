@@ -1,0 +1,395 @@
+/* ── Death Clock — Stylesheet ─────────────────────────────────────── */
+
+:root {
+  --bg: #0a0a0a;
+  --panel: #141414;
+  --text: #d4d4d4;
+  --dim: #666;
+  --red: #c0392b;
+  --red-glow: #e74c3c;
+  --grey: #555;
+  --grey-glow: #888;
+  --accent: #d4af37;
+  --seg-on: #ff2a2a;
+  --seg-off: #2a0000;
+  --seg-glow: 0 0 12px rgba(255, 42, 42, 0.6);
+  --section-border: #1a1a1a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Share Tech Mono', monospace;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+/* ── View switching ──────────────────────────────────────────────── */
+
+.view {
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.view.active { display: flex; }
+
+/* ── Survey ──────────────────────────────────────────────────────── */
+
+.survey-card {
+  background: var(--panel);
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.survey-card h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--red-glow);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.25rem;
+}
+
+.motto {
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  color: var(--accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--dim);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Form sections ────────────────────────────────────────────────── */
+
+.form-section {
+  border-top: 1px solid var(--section-border);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.form-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  color: var(--dim);
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.form-row { margin-bottom: 1rem; }
+
+.form-row.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-row label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--dim);
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.form-row input,
+.form-row select {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: var(--text);
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+  outline: none;
+  border-color: var(--red-glow);
+}
+
+.field-hint {
+  font-size: 0.7rem;
+  color: var(--dim);
+  margin-top: -0.5rem;
+  font-style: italic;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────── */
+
+.red-btn {
+  width: 100%;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 0 15px rgba(192, 57, 43, 0.4);
+}
+
+.red-btn:hover {
+  background: var(--red-glow);
+  box-shadow: 0 0 25px rgba(231, 76, 60, 0.6);
+}
+
+.red-btn.small {
+  width: auto;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.8rem;
+}
+
+.grey-btn {
+  background: var(--grey);
+  color: #ddd;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.grey-btn:hover { background: var(--grey-glow); }
+
+.disclaimer {
+  font-size: 0.7rem;
+  color: var(--dim);
+  text-align: center;
+  margin-top: 1.5rem;
+  line-height: 1.5;
+}
+
+.disclaimer a { color: var(--red-glow); text-decoration: none; }
+.disclaimer a:hover { text-decoration: underline; }
+
+/* ── Clock view ──────────────────────────────────────────────────── */
+
+.clock-container {
+  text-align: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.top-motto { margin-bottom: 2rem; }
+.bottom-motto { margin-top: 2rem; }
+
+.mode-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--dim);
+  margin-bottom: 1.5rem;
+}
+
+/* ── Seven-segment display ───────────────────────────────────────── */
+
+.seven-segment {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(1.8rem, 7vw, 4.5rem);
+  color: var(--seg-on);
+  text-shadow: var(--seg-glow);
+  letter-spacing: 0.05em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.seg-digit {
+  display: inline-block;
+  min-width: 0.6em;
+  text-align: center;
+}
+
+.seg-sep {
+  color: var(--seg-on);
+  opacity: 0.5;
+  padding: 0 0.02em;
+}
+
+.clock-label {
+  font-size: 0.8rem;
+  color: var(--dim);
+  letter-spacing: 0.15em;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* ── Button row ──────────────────────────────────────────────────── */
+
+.button-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ── Stats panel ─────────────────────────────────────────────────── */
+
+.stats-panel {
+  background: var(--panel);
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  margin: 2rem auto 0;
+  max-width: 480px;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.stats-panel h3 {
+  font-family: 'Cinzel', serif;
+  color: var(--red-glow);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* ── Summary boxes ────────────────────────────────────────────────── */
+
+.stats-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.stat-box {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+}
+
+.stat-val {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.stat-key {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.2rem;
+}
+
+.stat-row {
+  margin-bottom: 0.4rem;
+  color: #aaa;
+}
+
+.stat-row strong { color: var(--text); }
+
+/* ── Factor breakdown ────────────────────────────────────────────── */
+
+.factors-section { margin-top: 1.25rem; }
+
+.factors-section h4 {
+  font-size: 0.75rem;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--section-border);
+}
+
+.factors-list {
+  list-style: none;
+}
+
+.factor-item {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.factor-item:last-child { border-bottom: none; }
+
+.factor-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.factor-label {
+  font-size: 0.8rem;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.factor-years {
+  font-size: 0.85rem;
+  font-weight: bold;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.factor-years.positive { color: #2ecc71; }
+.factor-years.negative { color: var(--red-glow); }
+.factor-years.neutral  { color: var(--dim); }
+
+.factor-detail {
+  font-size: 0.72rem;
+  color: var(--dim);
+  line-height: 1.4;
+}
+
+/* ── Patina effect (subtle darkening over time) ──────────────────── */
+
+@keyframes patina {
+  0%   { filter: hue-rotate(0deg) brightness(1); }
+  100% { filter: hue-rotate(-8deg) brightness(0.92); }
+}
+
+.clock-container {
+  animation: patina 120s linear forwards;
+}
+
+/* ── Utility ─────────────────────────────────────────────────────── */
+
+.hidden { display: none !important; }
