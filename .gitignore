@@ -6,3 +6,4 @@ data/
 .env
 seed_profile.json
 TODOs.md
+compose.override.yml
