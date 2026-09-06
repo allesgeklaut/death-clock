@@ -1,4 +1,4 @@
-# 💀 Death Clock
+# Death Clock
 
 <p align="center"><img src="static/apple-touch-icon.png" width="128" alt="Death Clock app icon"></p>
 
