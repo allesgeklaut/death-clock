@@ -31,7 +31,7 @@ cd /stacks/death
 docker compose up -d --build
 ```
 
-The app will be available at **http://localhost:8010**.
+The app will be available at **http://localhost:8003**.
 
 ### Default User (Auto-Seed)
 
