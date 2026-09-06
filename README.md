@@ -1,9 +1,13 @@
 # 💀 Death Clock
 
+<p align="center"><img src="static/apple-touch-icon.png" width="128" alt="Death Clock app icon"></p>
+
 A web application inspired by the [Vsauce Death Clock](https://inqfactory.com/pages/death-clock) by Inq Factory.
 It estimates the seconds you have left to live based on a detailed lifestyle & health survey, then counts them down in real-time on a seven-segment-style display.
 
 > *OMNES VULNERANT, ULTIMA NECAT* — "All wound, the last kills."
+
+![Death Clock — the seven-segment countdown](docs/screenshot.png)
 
 ## How It Works
 
