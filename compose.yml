@@ -3,7 +3,7 @@ services:
     build: .
     container_name: death-clock
     restart: unless-stopped
-    ports: ["8003:8000"]
+    ports: ["127.0.0.1:8003:8000"]
     volumes: ["death_clock_data:/data"]
     environment:
       - DB_PATH=/data/deathclock.db
